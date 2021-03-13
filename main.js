@@ -30,9 +30,11 @@ const anton = students[2];
 function getSubjects(student) {
     return Object.keys(student.subjects).map((subject) => (subject[0].toUpperCase() + subject.slice(1)).replaceAll('_', ' '))
 }
-
+console.log(`Список предметів для ${tania.name}`);
 console.log(getSubjects(tania));
+console.log(`Список предметів для ${victor.name}`);
 console.log(getSubjects(victor));
+console.log(`Список предметів для ${anton.name}`);
 console.log(getSubjects(anton));
 
 
@@ -40,8 +42,11 @@ console.log(getSubjects(anton));
 function getAverageMark(student) {
     return +(Object.values(student.subjects).reduce((acc, val) => acc.concat(...val), []).reduce((acc, val, i) => (acc * i + val) / (i + 1), 0)).toFixed(2);
 }
+console.log(`Середня оцінка студентки ${tania.name}`);
 console.log(getAverageMark(tania));
+console.log(`Середня оцінка студента ${victor.name}`);
 console.log(getAverageMark(victor));
+console.log(`Середня оцінка студента ${anton.name}`);
 console.log(getAverageMark(anton));
 
 function getStudentInfo(student) {
@@ -52,22 +57,25 @@ function getStudentInfo(student) {
     }
 
 }
+console.log(`Загальна інформація про ${tania.name}`);
 console.log(getStudentInfo(tania));
+console.log(`Загальна інформація про ${victor.name}`);
 console.log(getStudentInfo(victor));
+console.log(`Загальна інформація про ${anton.name}`);
 console.log(getStudentInfo(anton));
 
 function getStudentsNames(students) {
     return students.map(item => item.name).sort()
 
 }
-
+console.log('Упорядкований список студентів');
 console.log(getStudentsNames(students));
 
 function getBestStudent(students) {
     let top = students.map(item => getStudentInfo(item)).sort((a, b) => a.averageMark < b.averageMark ? 1 : -1);
     return top[0].name
 }
-
+console.log('Кращий студент');
 console.log(getBestStudent(students));
 
 function calculateWordLetters(str) {
@@ -83,4 +91,5 @@ function calculateWordLetters(str) {
     }
     return obj;
 }
+console.log('Підрахунок літер в рядку');
 console.log(calculateWordLetters("тест"));
